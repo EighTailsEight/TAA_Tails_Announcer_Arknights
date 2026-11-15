@@ -1,0 +1,17 @@
+name: ci
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  check:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install -r requirements.txt
+      - run: python -m compileall -q app proto
+      - run: python -c "import sys; sys.path[:0] = ['app', 'proto']; import screen_detector, digits, bridge, player, voice_pack, state_machine, shop, hud_digits, avatar_hud, text_anchors, ocr"

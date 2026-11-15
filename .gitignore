@@ -1,0 +1,13 @@
+__pycache__/
+*.py[cod]
+.build/
+dist/
+build/
+_logs/
+_shots/
+_volume_cache/
+voices/
+packs/*.zip
+!packs/.gitkeep
+.env
+*.log
